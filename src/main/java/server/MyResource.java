@@ -18,9 +18,9 @@ public class MyResource {
 	@Path("getfile")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getTestService(@QueryParam("directoryPath")String directoryPath,@QueryParam("keyword")String keyword,@QueryParam("phone")String phone,@QueryParam("searchbtn")boolean searchbtn) {
-		System.out.println(searchbtn);
-        return Response.ok(200).entity(new GetFiles().getAllFiles(directoryPath,keyword,phone,searchbtn )).header("Access-Control-Allow-Origin", "*").build() ;
+    public Response getTestService(@QueryParam("directoryPath")String directoryPath,@QueryParam("keyword")String keyword,@QueryParam("phone")String phone,@QueryParam("skip")int skip) {
+		System.out.println(skip);
+        return Response.ok(200).entity(new GetFiles().getAllFiles(directoryPath,keyword,phone,skip )).header("Access-Control-Allow-Origin", "*").build() ;
     }
 	
 	//to authorize sign in
