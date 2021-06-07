@@ -1,7 +1,6 @@
 package server;
 
 import controllers.DataSourceController;
-import controllers.GetFiles;
 import controllers.UserController;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
@@ -14,14 +13,6 @@ import jakarta.ws.rs.core.Response;
 @Path("/")
 public class MyResource {
 
-    //to get files/folder using the given directory and search keyword
-	@Path("getfile")
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response getTestService(@QueryParam("directoryPath")String directoryPath,@QueryParam("keyword")String keyword,@QueryParam("phone")String phone,@QueryParam("skip")int skip) {
-		System.out.println(skip);
-        return Response.ok(200).entity(new GetFiles().getAllFiles(directoryPath,keyword,phone,skip )).header("Access-Control-Allow-Origin", "*").build() ;
-    }
 	
 	//to authorize sign in
 	@Path("/signin")

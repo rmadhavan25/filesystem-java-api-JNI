@@ -3,7 +3,7 @@ import java.sql.*;
 
 import models.*;;
 
-//contoller to verify user
+//controller to verify user
 public class UserController {
     Connection con = null;
 

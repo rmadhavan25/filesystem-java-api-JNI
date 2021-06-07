@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import models.*;
 
 
-//controller to send chartdata(s) which are retrived from mysql database
+//controller to send chartdata(s) which are retrieved from mysql database
 public class DataSourceController {
 
     Connection con = null;
