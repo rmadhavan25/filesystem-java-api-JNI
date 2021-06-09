@@ -1,5 +1,6 @@
 package server;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -15,7 +16,8 @@ import controllers.*;
 
 @ServerEndpoint("/getfile")
 public class MyWebSocket {
-    Queue<String> fileName = new LinkedList<>();
+    private Queue<String> fileName = new LinkedList<>();
+    private ArrayList<String> allFiles;
     
     
     
@@ -27,7 +29,8 @@ public class MyWebSocket {
     	String phone = session.getRequestParameterMap().get("phone").get(0);
     	
         System.out.println("onOpen fired by:" + session.getId());
-        this.fileName = new GetFiles().getAllFiles(directory, keyword,session);
+        this.allFiles = new GetFiles().getAllFiles(directory, keyword,session);
+        System.out.println(allFiles);
         this.onMessage("null", session);
         if(!this.fileName.isEmpty()) {
         	new DataSourceController().saveHistory(directory, keyword, phone);

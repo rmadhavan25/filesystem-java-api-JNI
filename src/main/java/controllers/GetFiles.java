@@ -25,7 +25,7 @@ public class GetFiles {
     }
     
     
-    public native void getFiles(String directory,String keyword);
+    public native ArrayList<String> getFiles(String directory,String keyword);
     
     public void addFile(String fn) {
     	if(directory.endsWith("/")) {
@@ -45,12 +45,12 @@ public class GetFiles {
     	
     }
     
-    public Queue<String> getAllFiles(String directory,String keyword,Session session) {
+    public ArrayList<String> getAllFiles(String directory,String keyword,Session session) {
     	this.directory = directory;
     	this.keyword = keyword;
     	user = session;
-    	getFiles(directory,keyword);
-    	return files;
+    	return getFiles(directory,keyword);
+    	//return files;
     }
     
             
